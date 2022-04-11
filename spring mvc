@@ -1,0 +1,25 @@
+container and containerless deployments, both standard controllers and REST controllers
+JSP pages and the Spring alternative, Thymeleaf, as well as consuming Spring MVC from client‑side JavaScript
+it's become the standard for Java web development
+Most Java web apps at the time were written using JavaServer Pages for the front end and had a very simple controller‑based architecture. 
+Later, people started looking for an alternative to SOAP services, and out came the REST service support in Spring MVC
+didn't want to try and support all of the features of REST and just the two most common ones, GET and POST
+ It has since become very full featured and easy to even expose endpoints from your data or model tier if you want
+As JavaScript‑heavy front ends took over, it was only a matter of time that single‑page applications, or SPAs, started to dominate the front‑end space
+ Spring MVC's full‑fledged REST support made it a great service layer for SPA apps
+Spring's architecture is a traditional model‑view‑controller design pattern.
+the view can be a simple REST service or JSP page
+The controller is the same regardless of what the front end or back end that we're using is. It's all written using Spring beans and configured just like any Spring bean
+the back end, much like the front end, can be swapped out with various persistent strategies, JPA, Hibernate, JDBC, even non‑relational databases
+ll of this can be figured with or without XML. 
+
+
+
+We have an incoming request that hits our front controller, that's just our dispatcher servlet inside of Spring, 
+and that hands off the request and delegates our request over to one of the controllers that we've set up. 
+So the dispatcher is just the router that comes in and says what controller's going to handle it
+
+incoming request -> dispatcher servlet(front controller or router) -> delegates-> one of the controller
+-> handle request and hand over to backend(web services or a database or multiple databases, any number of things that we're gathering data from)
+->backend creates that model(our data to be represented on our screen)  and hands it back to the front controller 
+-> controller hands back it someone for renderining(seperate from business logic)-> some view template(JSP/Thymeleaf)-> return back to front controller -> to browser
